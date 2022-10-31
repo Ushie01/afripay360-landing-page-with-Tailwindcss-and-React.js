@@ -68,3 +68,10 @@ clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
   background-color: #fff;
 }
 
+/* .write-up:hover{
+
+} */
+
+.market1:hover, .market2:hover, .market3:hover{
+    transition: 0.5s
+}

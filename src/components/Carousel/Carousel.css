@@ -1,3 +1,11 @@
+.leaf{
+    background-image: url('./../assets/leaf.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
 .carousel{
    overflow:hidden;
 }
@@ -12,7 +20,7 @@
     align-items: center;
     justify-content: center;
     height: 200px;
-    background-color: green;
+    /* background-color: green; */
     color: #fff;
 }
 
@@ -21,11 +29,18 @@
     justify-content: center;
 }
 
+/* .indicators text{
+    color: #fff;
+} */
+
 .indicators> button{
     margin: 5px;
 }
 
 .indicators > button.active {
-    background-color: green;
-    color: #fff
+    /* background-color: green; */
+    padding: 5px;
+    border-radius: 200%;
+    color: #fff;
 }
+

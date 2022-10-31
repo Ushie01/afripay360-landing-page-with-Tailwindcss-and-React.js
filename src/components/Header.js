@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Carousel, {CarouselItem} from './Carousel/Carousel';
 import logo from "./assets/afripaylogo.png";
 import afri0 from "./assets/afri0.jpg";
 import bag from "./assets/bag.png";
@@ -10,10 +11,13 @@ import ekedc from "./assets/ekedc.jpg";
 import moon from "./assets/moon.png";
 import sun from "./assets/sun.png";
 
+
 const Header = ({ user }) => {
   const [show, setShow] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [menu, setMenu] = useState(false);
+  const images = [afri0, afri0, afri0, afri0];
+
 
   const onHandleLight = () => {
     setShow((current) => !current);
@@ -43,9 +47,11 @@ const Header = ({ user }) => {
     event.currentTarget.classList.toggle("open");
   };
 
+
   return (
     <>
       <header>
+        {/* <Carousel /> */}
         <nav className="w-full hidden md:block pt-6 pb-6">
           <div className="flex flex-row items-center justify-between space-x-3 pl-32">
             {/* logo */}
@@ -114,7 +120,7 @@ const Header = ({ user }) => {
                 Register
               </Link>
               <Link
-                to="/sign-up"
+                to="/Signin"
                 className="px-8 py-2 ring-offset-2 ring ease-in duration-300 text-white 
                 font-bold hover:font-bold bg-black border-yellow-300 rounded-lg
                 shadow-md hover:text-yellow-300 hover:bg-white"
@@ -208,7 +214,7 @@ const Header = ({ user }) => {
                 id="menu"
                 className="fixed inset-0 flex flex-col items-center self-end px-6 py-1 pt-24 pb-4 
            text-white uppercase divide-y tracking-widest divide-gray-500 opacity-90
-           bg-blue-900 z-20 menu"
+           bg-green-900 z-20 menu"
               >
                 <Link to="/">
                   <img src={logo} alt={logo} className="h-14 w-32 -mt-20" />
@@ -313,15 +319,36 @@ const Header = ({ user }) => {
               />
             </div>
             <div className="hidden md:block w-1/2 md:w-1/2 bg-green-400 clip__path">
-              <div className="flex flex-row items-center justify-center ">
-                <img
-                  src={afri0}
-                  alt={afri0}
-                  className="h-92 w-80 shadow-2xl rounded mt-20"
-                />
-              </div>
+              <Carousel>
+                {images.map((img) => (
+                  <CarouselItem>
+                    <div className="flex flex-row items-center justify-center mt-64 imgList">
+                      <img
+                        src={img}
+                        alt={img}
+                        className="h-92 w-80 shadow-2xl rounded"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </Carousel>
             </div>
           </div>
+        </div>
+        <div className="md:hidden">
+          <Carousel>
+            {images.map((img) => (
+              <CarouselItem>
+                <div className="flex flex-row items-center justify-center mt-64 imgList">
+                  <img
+                    src={img}
+                    alt={img}
+                    className="h-92 w-80 shadow-2xl rounded"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </Carousel>
         </div>
       </header>
     </>

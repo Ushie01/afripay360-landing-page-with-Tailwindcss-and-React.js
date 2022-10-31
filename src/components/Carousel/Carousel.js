@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSwipeable } from "react-swipeable";
+import arrowR from "./arrow-right.svg";
+import arrowL from "./arrow-left.svg"
 import './Carousel.css';
 
 // Child Item
@@ -53,7 +55,10 @@ const Carousel = ({ children }) => {
     >
       <div
         className="inner"
-        style={{ transform: `translateX(-${activeIndex * 100}%)`, transition: "1s" }}
+        style={{
+          transform: `translateX(-${activeIndex * 100}%)`,
+          transition: "1s",
+        }}
       >
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { width: "100%" });
@@ -64,29 +69,31 @@ const Carousel = ({ children }) => {
           onClick={() => {
             updateIndex(activeIndex - 1);
           }}
+          className="font-bold text-white"
         >
-          Prev
+          <img src={arrowL} alt={arrowL} className="w-20 h-7" />
         </button>
-        {
-          React.Children.map(children, (child, index) => {
-            return (
-              <button
-                className={`${index === activeIndex ? "active" : ""}`}
-                onClick={() => {
-                  updateIndex(index);
+        {React.Children.map(children, (child, index) => {
+          return (
+            <button
+              className={`${
+                index === activeIndex ? "active" : ""
+              } text-gray-500`}
+              onClick={() => {
+                updateIndex(index);
               }}
-              >
-                {index + 1}
-              </button>
-            )
-          })
-        }
+            >
+              {`*`}
+            </button>
+          );
+        })}
         <button
           onClick={() => {
             updateIndex(activeIndex + 1);
           }}
+          className="font-bold text-white"
         >
-          Next
+          <img src={arrowR} alt={arrowR} className="w-20 h-7" />
         </button>
       </div>
     </div>

@@ -3,7 +3,8 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     fontFamily: {
-      'sans' : ['Qwitcher Grypen', 'cursive'],
+      'sans': ['Roboto', 'sans-serif'],
+      
     },
   },
   plugins: [],

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { useInView } from "react-intersection-observer";
 import Carousel, { CarouselItem } from './Carousel/Carousel';
+import ProductCard from "./ProductCard";
 import Header from './Header';
 import Card from './Card';
+import logo from "./assets/afripaylogo.png";
 import cash from './assets/cash-stack.svg';
 import envelope from './assets/envelope.svg';
 import corevalue from './assets/core-value.png';
@@ -14,10 +17,28 @@ import play from './assets/google-play.svg';
 import market1 from './assets/market1.jpeg';
 import market2 from './assets/market2.jpg';
 import market3 from './assets/market3.jpg';
-
+import pos2 from './assets/pos2.webp';
+import pos1 from './assets/pos1.jpg';
+import pos6 from './assets/pos6.jpg';
+import facebook from "./assets/facebook.svg";
+import twitter from "./assets/twitter.svg";
+import linkedin from "./assets/linkedin.svg";
+import whatsapp from "./assets/whatsapp.svg";
 
 
 const Homepage = () => {
+  // const { ref: sectionRef, inView: visible } = useInView();
+  // const sectionRef = useRef();
+  // const [visible, setVisible] = useState();
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     const entry = entries[0];
+  //     setVisible(entry.isIntersecting);
+  //   });
+  //   observer.observe(sectionRef.current);
+  // });
+
+
   const details = [
     {
       name: "Kingsley EKWURIBE",
@@ -57,7 +78,7 @@ const Homepage = () => {
     }
   ];
 
-    const customersCommentMobile = [
+  const customersCommentMobile = [
       {
         name: "Mama Abdulla",
         comment:
@@ -74,25 +95,61 @@ const Homepage = () => {
         name: "Chidinma Ola",
         comment:
           '"Big thanks to Afripay360, now my customers are rest assure when making their payment😘😘"',
-        image: market1
+        image: market1 
       },
-    ];
+  ];
+
+  const productCad = [
+    {
+      name: "AFRIPAY360 ANDROID POS",
+      batteryLife: "15hr",
+      amount: "₦30,000.00",
+      image: pos1
+    },
+    {
+      name: "AFRIPAY360 MPOS MINI",
+      batteryLife: "10hr",
+      amount: "₦15,000.00",
+      image: pos6
+    },
+    {
+      name: "AFRIPAY360 PALLAREX ANDROID POS",
+      batteryLife: "15hr",
+      amount: "₦35,000.00",
+      image: pos2
+    },
+  ];
+  
   return (
     <div>
       <Header />
-      <section className="mt-24 md:p-32">
+      <section className="mt-24 md:p-32" name="About">
         <div className="flex flex-col items-center justify-center">
-          <div className="flex flex-row items-center justify-center section h-16 shadow-md w-44 bg-green-400">
-            <p className="text-4xl text-white m-auto">About</p>
+          <div className="flex flex-row items-center justify-center section h-16 shadow-md md:w-48 w-32 bg-green-400">
+            <p className="md:text-3xl text-xl text-white m-auto">About</p>
           </div>
           <p className="text-3xl md:text-4xl text-black mt-14 md:mt-20">
             All-In-One platform for
           </p>
           <p className="text-3xl text-black">global growth</p>
-          <p className="mt-4 font text-gray-700 text-xs">
-            Make more sale by giving customers the ability to
+          <div className="hidden md:block flex flex-col items-center  justify-center text-center mt-4 text-gray-700 text-md">
+            <p>
+              Utilities and Bill Payment solution for Agents and Sub-Agents.
+              Electricity bills, Cable Tv, Airtime and data
+            </p>
+            <p>
+              recharge made simple Transfer and receive cash in seconds, make
+              donations without hassle. No down-time.
+            </p>
+            <p>All services done with simple clicks.</p>
+          </div>
+          <p className="md:hidden flex flex-col text-center mt-2 font text-gray-700 p-7 text-md">
+            Utilities and Bill Payment solution for Agents and Sub-Agents.
+            Electricity bills, Cable Tv, Airtime and data recharge made simple
+            Transfer and receive cash in seconds, make donations without hassle.
+            No down-time. All services done with simple clicks.
           </p>
-          <p className="text-gray-700 text-xs">pay the way they love like.</p>
+          {/* <p className="text-gray-700 text-xs">pay the way they love like.</p> */}
         </div>
 
         <div className="flex md:flex-row flex-col items-center justify-center space-x-24 mt-14">
@@ -134,8 +191,8 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="w-full mt-16 mb:space-y-8 mb-8 ">
-          <p className="flex items-center justify-center text-3xl">
+        <div className="w-full mt-16 md:mt-44  mb:space-y-8 mb-8">
+          <p className="flex items-center justify-center text-3xl md:p-12">
             Core Values
           </p>
           <img src={corevalue} alt={corevalue} />
@@ -143,10 +200,37 @@ const Homepage = () => {
       </section>
 
       <section>
-        <div className="md:m-40 hidden md:block">
+        <div className="md:mt-44">
+          <div className="flex flex-col items-center justify-center h-auto our__product">
+            <div className="flex flex-row items-center justify-center section h-12 shadow-md bg-green-400 md:w-72 w-40 mb-10">
+              <p className="md:text-3xl text-xl text-white m-auto">
+                Our Product
+              </p>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center md:space-x-12 space-y-12 mb-24 md:space-y-0">
+              {productCad.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  name={product.name}
+                  batteryLife={product.batteryLife}
+                  amount={product.amount}
+                  image={product.image}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="flex flex-row items-center justify-center section md:h-16 h-12 shadow-md md:w-64 mt-24 w-36 bg-green-400 m-auto mb-24">
+        <p className="md:text-3xl text-xl  text-white m-auto">Comment</p>
+      </div>
+
+      <section>
+        <div className="md:m-40 hidden md:block md:mt-96">
           <div
             className="relative flex flex-col-reserve md:flex-row 
-          items-center md:justify-between h-72 md:h-64 bg-green-400 rounded-lg mt-40"
+          items-center md:justify-between h-72 md:h-64 bg-green-400 rounded-lg mt-40 "
           >
             <div className="md:space-y-2 md:p-16 p-2 md:w-1/2">
               <Carousel>
@@ -166,7 +250,7 @@ const Homepage = () => {
               <img
                 src={market1}
                 alt={market1}
-                className="hover:relative md:h-72 md:w-80 
+                className="hover:relative md:h-64 md:w-80 
                 md:hover:h-80 md:hover:w-96 md:-mt-36 md:ml-44 rounded-lg 
                 market1 transition duration-700 
                 ease-in-out "
@@ -174,16 +258,16 @@ const Homepage = () => {
               <img
                 src={market2}
                 alt={market2}
-                className="hover:relative md:h-72 md:w-80 
-                md:hover:h-80 md:hover:w-96 md:-mt-40 md:-ml-2 rounded-lg 
+                className="hover:relative md:h-64 md:w-80 
+                md:hover:h-80 md:hover:w-96 md:-mt-36 md:-ml-2 rounded-lg 
                 market2 transition duration-700 
                 ease-in-out "
               />
               <img
                 src={market3}
                 alt={market3}
-                className="hover:relative md:h-72 
-                md:hover:h-80 md:-mt-48 md:ml-16
+                className="hover:relative md:h-64 
+                md:hover:h-80 md:-mt-36 md:ml-16
                 rounded-lg market3"
               />
             </div>
@@ -217,11 +301,11 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section>
-        <div className="bg-gray-100 leaf mt-20">
+      <section name="Team">
+        <div className="bg-gray-100 leaf mt-48 md:mt-96">
           <div className="flex flex-col items-center justify-center">
-            <div className="flex flex-row items-center justify-center section h-16 shadow-md w-44 bg-green-400">
-              <p className="text-4xl text-white m-auto">Team</p>
+            <div className="flex flex-row items-center justify-center section h-16 shadow-md md:w-64 w-40 bg-green-400">
+              <p className="text-3xl text-white m-auto">Team</p>
             </div>
             <div className="flex flex-col md:flex-row md:space-x-12 items-center justify-center md:p-6 pb-28">
               {details.map((person, index) => (
@@ -238,14 +322,16 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section>
+      <section name="TryOut">
         <div className="mt-10 mb-5">
           <div className="flex flex-col items-center justify-center md:p-6 space-y-10">
-            <div className="flex flex-row items-center justify-center section h-16 shadow-md w-56 bg-green-400 -mt-10 md:-mt-16">
-              <p className="text-4xl text-white m-auto p-3">Try Out</p>
+            <div className="flex flex-row items-center justify-center section md:h-16 h-12 shadow-md md:w-64 w-32 bg-green-400 -mt-10 md:-mt-16">
+              <p className="md:text-3xl text-xl text-white m-auto p-3">
+                Try Out
+              </p>
             </div>
             <div className="flex md:flex-row flex-col items-center md:items-start justify-center md:space-x-28">
-              <div className="w-full md:w-1/2 md:mt-16">
+              <div className="w-full md:w-1/2 md:mt-44">
                 <img src={app} alt={app} className="md:w-80 w-full" />
               </div>
               <div className="w-full md:w-1/2 flex flex-col items-start justify-center mt-5 md:m-auto">
@@ -276,16 +362,99 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section className="mt-96">
-        <div className="flex flex-col items-center justify-center md:p-6">
-          <div className="flex flex-row items-center justify-center section h-16 shadow-md w-80 bg-green-400 -mt-10 md:-mt-16">
-            <p className="text-4xl text-white m-auto p-3">Contact Us</p>
+      <section className="mt-60" name="Contact">
+        <div className="flex flex-col items-center justify-center bg-gradient-to-b shadow-lg from-green-400 to-green-700 p-3 md:p-24">
+          <div className="flex flex-row items-center justify-center section h-16 shadow-lg md:w-64 w-40 bg-green-400 -mt-10 md:-mt-16">
+            <p className="md:text-3xl text-xl text-white m-auto p-1 md:p-3">
+              Contact Us
+            </p>
           </div>
+          <div className="map w-full flex flex-row w-full md:m-10 h-full shadow-lg m-24">
+            <div className="flex flex-col items-start justify-start contact__section space-y-8 bg-opacity-60 bg-white h-auto md:w-1/2 w-full p-3 md:p-12">
+              <h2 className="text-5xl text-green-500">
+                We are open for buisness
+              </h2>
+              <input
+                type="text"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 "
+                placeholder="Full name"
+              />
+              <input
+                type="email"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 mb-3"
+                placeholder="Email"
+              />
+              <input
+                type="text"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 mb-3"
+                placeholder="Subject"
+              />
+              <textarea
+                type="message"
+                className="w-full md:w-96 border-b hover:border-opacity-0 mb-3 text-lg p-4 h-36"
+                placeholder="Message"
+              />
+              <Link
+                to="/"
+                className="px-8 py-4 bg-green-700 md:bg-green-400
+                shadow-lg rounded-full text-white text-md text-3xl z-60
+                hover:transition hover:duration-700 hover:ease-in-out hover:px-10 hover:py-6
+                "
+              >
+                Send Message
+              </Link>
+            </div>
+          </div>
+          {/* <div className="flex flex-col items-center justify-center  bg-gradient-to-b shadow-lg from-green-400 to-green-700"></div> */}
         </div>
       </section>
 
-      <section className="mt-96">
-        <div className="flex flex-col items-center justify-center md:p-6 bg-gray-900 h-12">
+      <section>
+        <div className="p-24 bg-gray-900 h-auto">
+          <div className="flex flex-col md:flex-row items-start justify-between md:p-6 space-y-10">
+            <div className="flex flex-col items-start justify-start space-y-10">
+              <img src={logo} alt={logo} className="w-52 h-20" />
+              <div className="space-y-7">
+                <div className="flex flex-row space-x-4">
+                  <img src={facebook} alt={facebook} className="w-8 h-8" />
+                  <img src={twitter} alt={twitter} className="w-8 h-8" />
+                  <img src={linkedin} alt={linkedin} className="w-8 h-8" />
+                  <img src={whatsapp} alt={whatsapp} className="w-8 h-8" />
+                </div>
+                <div className="text-white text-md">
+                  <p className="">Follow our social</p>
+                  <p>media.</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-start justify-start space-y-5 text-white">
+              <p className="text-2xl">Support</p>
+              <p>FAQ</p>
+              <p>How it works</p>
+              <p>Features</p>
+              <p>Contact</p>
+            </div>
+            <div className="flex flex-col items-start justify-start space-y-5 text-white">
+              <p className="text-2xl">Links</p>
+              <p>FAQ</p>
+              <p>Facebook</p>
+              <p>Instagram</p>
+              <p>Twitter</p>
+            </div>
+            <div className="flex flex-col items-start justify-start space-y-5 text-white">
+              <p className="text-2xl">Get In Touch</p>
+              <div>
+                <p>African Vogue Nigeria Limited 21 Fulfillment Avenue,</p>
+                <p>Rumuolumeni, Port Harcourt, Rivers State.</p>
+              </div>
+              <div>
+                <p>customercare@afripay360.com</p>
+                <p>info@africanvogueng.com</p>
+                <p>info@afripay360.com</p>
+              </div>
+              <p>+234-906-254-7088</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

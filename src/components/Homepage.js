@@ -17,7 +17,7 @@ import play from './assets/google-play.svg';
 import market1 from './assets/market1.jpeg';
 import market2 from './assets/market2.jpg';
 import market3 from './assets/market3.jpg';
-import pos2 from './assets/pos2.webp';
+import pos2 from './assets/pos2.png';
 import pos1 from './assets/pos1.jpg';
 import pos6 from './assets/pos6.jpg';
 import facebook from "./assets/facebook.svg";
@@ -369,8 +369,44 @@ const Homepage = () => {
               Contact Us
             </p>
           </div>
-          <div className="map w-full flex flex-row w-full md:m-10 h-full shadow-lg m-24">
+          <div className="hidden md:block map w-full flex flex-row w-full md:m-10 h-full shadow-lg m-24">
             <div className="flex flex-col items-start justify-start contact__section space-y-8 bg-opacity-60 bg-white h-auto md:w-1/2 w-full p-3 md:p-12">
+              <h2 className="text-5xl text-green-500">
+                We are open for buisness
+              </h2>
+              <input
+                type="text"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 "
+                placeholder="Full name"
+              />
+              <input
+                type="email"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 mb-3"
+                placeholder="Email"
+              />
+              <input
+                type="text"
+                className="w-full md:w-96 p-4 border-b-2 hover:border-opacity-0 mb-3"
+                placeholder="Subject"
+              />
+              <textarea
+                type="message"
+                className="w-full md:w-96 border-b hover:border-opacity-0 mb-3 text-lg p-4 h-36"
+                placeholder="Message"
+              />
+              <Link
+                to="/"
+                className="px-8 py-4 bg-green-700 md:bg-green-400
+                shadow-lg rounded-full text-white text-md text-3xl z-60
+                hover:transition hover:duration-700 hover:ease-in-out hover:px-10 hover:py-6
+                "
+              >
+                Send Message
+              </Link>
+            </div>
+          </div>
+          <div className="md:hidden map w-full flex flex-row w-full md:m-10 h-full shadow-lg m-24">
+            <div className="flex flex-col items-start justify-start space-y-8 bg-opacity-60 bg-white h-auto md:w-1/2 w-full p-3 md:p-12">
               <h2 className="text-5xl text-green-500">
                 We are open for buisness
               </h2>

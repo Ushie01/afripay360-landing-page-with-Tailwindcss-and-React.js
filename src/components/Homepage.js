@@ -334,8 +334,8 @@ const Homepage = () => {
               <div className="w-full md:w-1/2 md:mt-44">
                 <img src={app} alt={app} className="md:w-80 w-full" />
               </div>
-              <div className="w-full md:w-1/2 flex flex-col items-start justify-center mt-5 md:m-auto">
-                <p className="text-2xl">
+              <div className="w-full md:w-1/2 items-center justify-center md:items-start md:justify-start flex flex-col items-start justify-center mt-16 md:m-auto">
+                <p className="text-3xl text-center md:text-start">
                   Smartly use on your
                   <br /> mobile app
                 </p>

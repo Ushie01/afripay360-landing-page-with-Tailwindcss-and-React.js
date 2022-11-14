@@ -17,7 +17,7 @@ import play from './assets/google-play.svg';
 import market1 from './assets/market1.jpeg';
 import market2 from './assets/market2.jpg';
 import market3 from './assets/market3.jpg';
-import pos2 from './assets/pos2.png';
+import pos2 from './assets/pos.png';
 import pos1 from './assets/pos1.jpg';
 import pos6 from './assets/pos6.jpg';
 import facebook from "./assets/facebook.svg";

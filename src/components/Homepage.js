@@ -330,7 +330,7 @@ const Homepage = () => {
                 Try Out
               </p>
             </div>
-            <div className="flex md:flex-row flex-col items-center md:items-start justify-center md:space-x-28">
+            <div className="flex md:flex-row flex-col p-8 items-center md:items-start justify-center md:space-x-28">
               <div className="w-full md:w-1/2 md:mt-44">
                 <img src={app} alt={app} className="md:w-80 w-full" />
               </div>

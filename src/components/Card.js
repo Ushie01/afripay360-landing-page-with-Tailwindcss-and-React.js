@@ -1,7 +1,7 @@
 import React from 'react';
 import facebook from './assets/facebook.svg';
 import twitter from './assets/twitter.svg';
-import linkedin from './assets/linkedin.svg'
+import linkedin from './assets/linkedin.svg';
 
 const Card = ({name, position, description, image}) => {
     return (

@@ -75,7 +75,15 @@ const Header = ({ user }) => {
         >
           <div className="flex flex-row items-center justify-between space-x-3 pl-32">
             {/* logo */}
-            <img src={logo} alt={logo} className="h-12 w-32" />
+            <Lnk
+              to="/"
+              smooth={true}
+              offset={0}
+              duration={1000}
+              className="pointer"
+            >
+              <img src={logo} alt={logo} className="h-12 w-32" />
+            </Lnk>
             {/* Menu */}
             <div
               className="flex flex-row items-center space-x-6 justify-center 
@@ -353,7 +361,10 @@ const Header = ({ user }) => {
                 >
                   Get Started
                 </Link>
-                <Link className="flex flex-row space-x-2">
+                <Link
+                  to='https://play.google.com/store/apps/details?id=com.africanvogue.avg&hl=en&gl=US&pli=1'
+                  className="flex flex-row space-x-2"
+                >
                   <img
                     src={download}
                     alt={download}

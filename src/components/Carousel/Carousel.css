@@ -1,11 +1,3 @@
-.leaf{
-    background-image: url('./../assets/leaf.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-}
-
 .carousel{
    overflow:hidden;
 }

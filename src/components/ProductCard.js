@@ -61,7 +61,7 @@ const productCard = ({image, batteryLife, amount, name }) => {
               <hr className="border-gray-400 w-72 " />
               <p>Internet access: 4G</p>
               <hr className="border-gray-400 w-72 " />
-              <p>Pottable</p>
+              <p>Potable</p>
               <hr className="border-gray-400 w-72 " />
               <p>Operation: Simple</p>
             </div>

@@ -12,7 +12,7 @@ import corevalue from './assets/core-value.png';
 import kingsley from './assets/kingsley.png';
 import george from './assets/george.png';
 import charles from './assets/charles.png';
-import app from './assets/app.webp';
+import app from './assets/app.jpg';
 import play from './assets/google-play.svg';
 import market1 from './assets/market1.jpeg';
 import market2 from './assets/market2.jpg';
@@ -408,7 +408,7 @@ const Homepage = () => {
           <div className="md:hidden map w-full flex flex-row w-full md:m-10 h-full shadow-lg m-24">
             <div className="flex flex-col items-start justify-start space-y-8 bg-opacity-60 bg-white h-auto md:w-1/2 w-full p-3 md:p-12">
               <h2 className="text-5xl text-green-500">
-                We are open for buisness
+                We are open for business
               </h2>
               <input
                 type="text"
